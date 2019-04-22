@@ -1,0 +1,28 @@
+
+<%= image_tag(@src, class: 'gif') %>
+
+<div id = 'comments'>
+  <h1> INSERT YOUR COMMENTS ABOUT THIS TEST: </h1>
+
+  <%= form_with(model: @comment, local: true) do |form| %>
+    <p>
+      <%= form.text_field :name, placeholder: "Your Name" %>
+    </p>
+    <p>
+      <%= form.text_area :body, placeholder: "Your comment" %>
+    </p>
+    <p>
+      <%= form.submit "Comment!" %>
+    </p>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+    <div class = 'comment'>
+      <h4><%= comment.name %></h4>
+      <p><%= comment.body %></p>
+      <hr>
+    </div>
+  <% end %>
+
+</div>
+
